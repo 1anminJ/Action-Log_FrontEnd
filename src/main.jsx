@@ -9,21 +9,35 @@ import HomePage from './pages/HomePage.jsx'
 import ToolPage from './pages/ToolPage.jsx'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { AuthProvider } from './context/AuthContext.jsx';
+import LoginPage from './pages/LoginPage.jsx';
+import SignupPage from './pages/SignupPage.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
+import HistoryPage from './pages/HistoryPage.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        {/* 3. 앱 전체를 BrowserRouter로 감싸기 */}
+        {/* [수정] 1. BrowserRouter를 최상위로 이동 */}
         <BrowserRouter>
-            {/* 4. App이 공통 레이아웃 역할을 하도록 설정 */}
-            <Routes>
-                <Route path="/" element={<App />}>
-                    {/* 5. 주소별로 다른 페이지 보여주기 */}
-                    {/* 주소 "/" (홈) -> HomePage */}
-                    <Route index element={<HomePage />} />
-                    {/* 주소 "/tool" -> ToolPage (우리의 요약 툴) */}
-                    <Route path="tool" element={<ToolPage />} />
-                </Route>
-            </Routes>
+            {/* [수정] 2. AuthProvider를 그 안으로 이동 */}
+            <AuthProvider>
+                <Routes>
+                    {/* App (공통 레이아웃 - 네비/푸터 O) */}
+                    <Route path="/" element={<App />}>
+                        <Route index element={<HomePage />} />
+
+                        {/* ProtectedRoute 적용 */}
+                        <Route element={<ProtectedRoute />}>
+                            <Route path="tool" element={<ToolPage />} />
+                            <Route path="history" element={<HistoryPage />} />
+                        </Route>
+                    </Route>
+
+                    {/* 독립 페이지 (네비/푸터 X) */}
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/signup" element={<SignupPage />} />
+                </Routes>
+            </AuthProvider>
         </BrowserRouter>
     </React.StrictMode>,
 )

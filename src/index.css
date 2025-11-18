@@ -19,7 +19,7 @@
 .App {
   max-width: 1280px; /* [수정] 768px에서 1280px로 대폭 확장! */
   margin: 40px auto; /* 중앙 정렬 */
-  padding: 2rem;
+  padding: 2rem 5rem;
   background-color: #ffffff; /* 흰색 카드 배경 */
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
