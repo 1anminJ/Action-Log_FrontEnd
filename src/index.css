@@ -267,3 +267,200 @@ form {
     margin-top: 2rem;
   }
 }
+
+/* === 로그인 / 회원가입 페이지 === */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.auth-form-wrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.auth-form-wrapper .page-header {
+    border-bottom: none;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+
+.auth-form {
+    display: block;
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.25rem;
+}
+
+.auth-form label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="password"],
+.auth-form input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box; /* Add this */
+}
+
+.auth-form .remember-me {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.auth-form .remember-me input {
+    margin-right: 8px;
+}
+
+.auth-form .submit-button {
+    width: 100%;
+    padding: 12px 24px;
+    cursor: pointer;
+    background-color: #065F46;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.auth-form .submit-button:hover {
+    background-color: #059669; /* Darker green */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.auth-switch-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #6B7280;
+}
+.auth-switch-link a {
+    color: #065F46;
+    font-weight: 600;
+}
+
+/* === History Page === */
+.history-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.history-filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.history-filters input, .history-filters select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.history-filters input {
+    flex-grow: 1;
+    min-width: 250px;
+}
+.history-filters select {
+    min-width: 150px;
+}
+
+.history-list-empty {
+    text-align: center;
+    color: #6B7280;
+    padding: 4rem;
+    border: 2px dashed #eee;
+    border-radius: 8px;
+}
+.history-list-empty p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+.history-list-empty a {
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #065F46;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+.history-card {
+    background-color: #FFFFFF;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    position: relative;
+}
+.history-card-delete-button {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 5px 10px;
+    background-color: #FEF2F2;
+    color: #DC2626;
+    border: 1px solid #FEE2E2;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.history-card h3 {
+    color: #065F46;
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+    padding-right: 70px; /* 삭제 버튼과 겹치지 않게 */
+}
+.history-card .date {
+    font-size: 0.9rem;
+    color: #6B7280;
+    margin-bottom: 1rem;
+}
+.history-card h4 {
+    margin: 15px 0 5px 0;
+}
+.history-card pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .history-filters {
+        flex-direction: column;
+    }
+    .history-card h3 {
+        padding-right: 0;
+    }
+    .history-card-delete-button {
+        position: static;
+        margin-top: 1rem;
+        width: 100%;
+    }
+    .auth-form-wrapper {
+        margin: 1rem;
+        padding: 2rem;
+    }
+}

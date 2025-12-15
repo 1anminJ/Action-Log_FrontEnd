@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+
 function ToolPage() {
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState(null);
@@ -60,7 +62,7 @@ function ToolPage() {
 
         try {
             // [수정 없음] headers가 없는 것이 올바른 코드입니다.
-            const response = await axios.post('http://localhost:8080/api/summarize', formData);
+            const response = await axios.post(`${API_BASE_URL}/api/summarize`, formData);
 
             setResult(response.data);
 

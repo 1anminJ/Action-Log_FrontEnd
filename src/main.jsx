@@ -25,10 +25,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                     {/* App (공통 레이아웃 - 네비/푸터 O) */}
                     <Route path="/" element={<App />}>
                         <Route index element={<HomePage />} />
+                        <Route path="tool" element={<ToolPage />} />
 
                         {/* ProtectedRoute 적용 */}
                         <Route element={<ProtectedRoute />}>
-                            <Route path="tool" element={<ToolPage />} />
                             <Route path="history" element={<HistoryPage />} />
                         </Route>
                     </Route>
